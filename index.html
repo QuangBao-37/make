@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Trình Phát Nhạc Đẳng Cấp</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(-45deg, #1e1e2f, #141414, #2c2c54, #111);
+      background-size: 400% 400%;
+      animation: bgGradient 20s ease infinite;
+      color: white;
+    }
+
+    @keyframes bgGradient {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .container {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #ffcc00;
+    }
+
+    audio {
+      width: 100%;
+      max-width: 600px;
+      margin: 20px 0;
+    }
+
+    .cover {
+      width: 200px;
+      height: 200px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      border: 5px solid white;
+      box-shadow: 0 0 30px #ffcc00;
+    }
+
+    .playlist {
+      margin-top: 40px;
+    }
+
+    .track {
+      margin: 10px 0;
+      padding: 10px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .track:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎧 Trình Phát Nhạc Đẳng Cấp 🎶</h1>
+    <img src="https://i.scdn.co/image/ab67616d0000b2734e493f3b76f1e3b43073b947" alt="cover" class="cover">
+    <div>
+      <strong>Bài hát: </strong><span id="song-name">Bài Nhạc Của Bạn</span><br>
+      <strong>Ca sĩ: </strong><span id="artist">Không rõ</span>
+    </div>
+    <audio id="audio" controls autoplay>
+      <source src="nhac_user.mp3" type="audio/mpeg">
+      Trình duyệt không hỗ trợ audio.
+    </audio>
+
+    <div class="playlist">
+      <h3>Danh sách phát</h3>
+      <div class="track" onclick="playSong('Bài Nhạc Của Bạn', 'Không rõ', 'nhac_user.mp3')">
+        🎵 Bài Nhạc Của Bạn
+      </div>
+      <div class="track" onclick="playSong('EDM Energy', 'DJ Future', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3')">
+        ⚡ EDM Energy
+      </div>
+      <div class="track" onclick="playSong('Relax Vibes', 'Calm Artist', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3')">
+        🌙 Relax Vibes
+      </div>
+    </div>
+
+    <footer>© 2025 Web Nhạc Đẳng Cấp</footer>
+  </div>
+
+  <script>
+    function playSong(name, artist, src) {
+      document.getElementById('song-name').innerText = name;
+      document.getElementById('artist').innerText = artist;
+      const audio = document.getElementById('audio');
+      audio.src = src;
+      audio.play();
+    }
+  </script>
+</body>
+</html>
